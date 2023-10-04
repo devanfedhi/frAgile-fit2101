@@ -1,0 +1,35 @@
+<head>
+    <title>Login</title>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+</head>
+<body>
+    <div id="login-form">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="login-username">Username:</label>
+            <input type="text" id="login-username" name="login-username" required>
+            
+            <label for="login-password">Password:</label>
+            <input type="password" id="login-password" name="login-password" required>
+            
+            <button type="button" onclick="login()">Login</button>
+        </form>
+    </div>
+
+    <div>
+        <a type="button" class="btn btn-success" href="./register.html">Create An Account</a>
+
+    </div>
+
+    <div id="verify-form-login">
+        <label for="login-code">Code:</label>
+        <input type="text" id="login-code" name="login-code" required>
+        <button type="button" onclick="verifyCodeLogin()">Verify</button>
+    </div>
+
+    <div id="output"></div>
+
+    <script src="../js/login.js"></script>
+</body>
+</html>
+

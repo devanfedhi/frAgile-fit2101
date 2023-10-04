@@ -1,0 +1,68 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../views.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+        <!--Import Font-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+     
+        <!--Import Icons-->
+		<script src="https://kit.fontawesome.com/5335e472ee.js" crossorigin="anonymous"></script>
+		
+     <style>
+        body, html {
+            background-color: #0e0f12;
+        }
+    </style>
+    <title>Create task</title>
+</head>
+<body>
+    <div class="container-full">
+        <h1>Product Backlog</h1>
+
+        <!--Gotta do some simple css for this-->
+        <label for="sort" style="display: inline-block; margin-right: 100px;"></label> 
+            <select class="sort" name="sortOptions" id="sortOptions" onchange="sort()"> 
+                <option value="" selected disabled>Sort by</option>
+                <option value="default">Default</option>  
+                <option value="priorityHighest">Highest Priority</option> 
+                <option value="priorityLowest">Lowest Priority</option> 
+            </select>
+            
+        <div class="wrapper">            
+            <div class="grid" id="taskID">
+            </div>
+        </div>
+
+        <div id="modal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-body" id="modal-body">
+                <div class="modal-text" id="modal-text"></div>		
+                <div class="btn-wrapper-sml">
+                    <button type="button" class="btn" id="primary" style="font-size: 14px;" onclick="dismiss()">Cancel</button>
+                    <button type="button" class="btn" id="destructive" style="font-size: 14px;" onclick="confirmDelete()">Delete</button>
+                </div>
+            </div>
+        </div>
+
+        <footer style="text-align: center;">
+        <!--Submit/Cancel Buttons-->
+        <div class="btn-wrapper">
+        <button class="btn" id="secondary" onclick="window.location.href='./index.html'">
+            Close
+        </button>
+        
+        <button class="btn" id="primary" onclick="window.location.href='./create-task.html'">
+            Add New Task
+        </button>
+        </div>
+        </footer>
+        
+        <script src="../js/createTask.js"></script>
+        <script src="../js/productBacklog.js"></script>
+    </div>
+</body>
+</html>

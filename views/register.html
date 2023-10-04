@@ -1,0 +1,54 @@
+<head>
+    <title>Register</title>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+</head>
+<body>
+
+
+    <div id="register-form">
+        <h2>Register</h2>
+        <form>
+            <label for="register-username">Username:</label>
+            <input type="text" id="register-username" name="register-username" required>
+
+            <label for="register-fullname">Full name:</label>
+            <input type="text" id="register-fullname" name="register-fullname" required>
+
+            <label for="register-email">Email:</label>
+            <input type="text" id="register-email" name="register-email" required>
+            
+            <label for="register-role">Role:</label>
+            <td>
+                <input list="team" id="register-role" placeholder="Enter Role"></input>
+                <datalist id="team">
+                    <option value="Scrum Master">Scrum Master</option> 
+                    <option value="Product Owner">Product Owner</option> 
+                    <option value="Proxy Product Owner">Proxy Product Owner</option> 
+                    <option value="Developer">Developer</option> 
+                    <!-- Need to add js to generate list of team members -->
+                </datalist>
+                
+            </td>
+            
+            <label for="register-password">Password:</label>
+            <input type="password" id="register-password" name="register-password" required>
+            
+            <button type="button" onclick="sendCode()">Register</button>
+
+  
+        </form>
+    </div>
+
+    <div id="verify-form">
+        <label for="register-code">Code:</label>
+        <input type="text" id="register-code" name="register-code" required>
+        <button type="button" onclick="verifyCode()">Verify</button>
+    </div>
+
+
+    <div id="output"></div>
+
+    <script src="../js/login.js"></script>
+</body>
+</html>
+

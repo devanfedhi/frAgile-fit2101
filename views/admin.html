@@ -1,0 +1,93 @@
+<head>
+    <title>Admin Page</title>
+</head>
+<body>
+    <h1>Stored Usernames and Passwords</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Password</th>
+                <th>Remove User</th>
+            </tr>
+        </thead>
+        <tbody id="userList">
+        </tbody>
+    </table>
+
+    <div id="edit-user-form">
+        <h2>Edit User Details</h2>
+        <form>
+            <label for="login-username">Username:</label>
+            <input type="text" id="login-username" name="login-username" required>
+
+            <label for="edit-username">Edit Username:</label>
+            <input type="text" id="edit-username" name="edit-username" required>
+
+            <label for="edit-fullname">Edit Full Name:</label>
+            <input type="text" id="edit-fullname" name="edit-fullname" required>
+
+            <label for="edit-email">New Email:</label>
+            <input type="text" id="edit-email" name="edit-email" required>
+
+            <label for="edit-role">Role:</label>
+            <td>
+                <input list="team" id="edit-role" placeholder="Enter Role"></input>
+                <datalist id="team">
+                    <option value="Scrum Master">Scrum Master</option> 
+                    <option value="Product Owner">Product Owner</option> 
+                    <option value="Proxy Product Owner">Proxy Product Owner</option> 
+                    <option value="Developer">Developer</option> 
+                    <!-- Need to add js to generate list of team members -->
+                </datalist>
+                
+            </td>
+            
+            <label for="edit-password">New Password:</label>
+            <input type="password" id="edit-password" name="edit-password" required>
+            
+            <button type="button" onclick="edit()">Save Changes</button>
+        </form>
+    </div>
+    <div>
+        <a type="button" class="btn btn-success" href="./index.html">Back to Home</a>
+    </div>
+    <script src="../js/view.js"></script>
+    <script src="../js/login.js"></script>
+    <button type="button" onclick="clear_users()">Clear Users</button>
+    <button type="button" onclick="clear_admins()">Clear Admins</button>
+    <script>
+
+
+        function clear_users(){
+            localStorage.removeItem("userStorage")
+            localStorage.setItem("userStorage", JSON.stringify([]));
+            window.location.href=`../views/admin.html`;
+        }
+
+        function clear_admins(){
+            localStorage.removeItem("adminStorage")
+            
+
+            localStorage.setItem("adminStorage", JSON.stringify([]));
+            let admin = {
+                username: 'nisaldesilva',
+                email: 'nisal.desilva1@monash.edu',
+                fullname: 'Nisal De Silva',
+                role: 'Admin',
+                password: 'monash',
+            }
+
+            const adminAdd = JSON.parse(localStorage.getItem("adminStorage"));
+            adminAdd.push(admin);
+            localStorage.setItem('adminStorage', JSON.stringify(adminAdd));
+
+            window.location.href=`../views/admin.html`;
+        }
+
+    </script>
+</body>
+</html>
